@@ -1,0 +1,1 @@
+export 'nego_font_family.dart';
