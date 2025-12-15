@@ -1,5 +1,6 @@
 export 'input_date.dart';
 export 'input_email.dart';
+export 'input_email_or_phone.dart';
 export 'input_field.dart';
 export 'input_number.dart';
 export 'input_password.dart';

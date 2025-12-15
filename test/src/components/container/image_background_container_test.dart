@@ -11,7 +11,7 @@ void main() {
       await tester.pumpWidget(
         NegoApp(
           home: ImageBackgroundContainer(
-            image: AppImage.image,
+            image: NegoAppImage.image,
             child: Text(customLabel),
           ),
         ),

@@ -1,7 +1,5 @@
 # nego_design_example
 
-Welcome
-
 Demonstrates how to use the nego_design plugin.
 
 ## Getting Started

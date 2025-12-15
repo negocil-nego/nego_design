@@ -51,15 +51,7 @@ class _MyAppState extends State<MyApp> {
     return NegoApp(
       debugShowCheckedModeBanner: false,
       title: 'NegoDesign',
-      home: PageImageOnboarding(
-        models: [
-          OnboardingModel(
-              image: 'assets/1.jpg',
-              title: 'Lorem',
-              description: 'You can easily locate the nearest fuel stations and check in real time whether they have petrol, diesel or both available. This helps you make quick decisions and avoid unnecessary journeys'
-          )
-        ],
-      ),
+      home: PageLogin(),
     );
   }
 }

@@ -1,6 +1,6 @@
 name: nego_design
 description: A modern, responsive design system for Flutter applications with simple and customizable widgets
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/negoflutter/nego_design
 repository: https://github.com/negoflutter/nego_design
 issue_tracker: https://github.com/negoflutter/nego_design/issues
@@ -52,7 +52,9 @@ flutter:
   # To add assets to your plugin package, add an assets section, like this:
   assets:
     - assets/1.jpg
-  #   - images/a_dot_ham.jpeg
+    - assets/facebook.png
+    - assets/google.png
+    - assets/linkedin.png
   #
   # For details regarding assets in packages, see
   # https://flutter.dev/to/asset-from-package

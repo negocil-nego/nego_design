@@ -11,7 +11,7 @@ class InputField extends StatefulWidget {
   final Color? fillColor;
   final InputBorder? inputBorder;
   final TextInputType? textInputType;
-  final TextInputAction textInputAction;
+  final TextInputAction? textInputAction;
   final Function(String)? onChanged;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
@@ -26,10 +26,10 @@ class InputField extends StatefulWidget {
     this.filled = true,
     this.obscureText = false,
     this.maxLength,
-    this.fillColor = Colors.black12,
-    this.inputBorder = InputBorder.none,
-    this.textInputType = TextInputType.text,
-    this.textInputAction = TextInputAction.next,
+    this.fillColor,
+    this.inputBorder,
+    this.textInputType,
+    this.textInputAction,
     this.prefixIcon,
     this.suffixIcon,
   });
@@ -49,7 +49,9 @@ class _InputFieldState extends State<InputField> {
         labelText: widget.labelText,
         fillColor: widget.fillColor,
         filled: widget.filled,
-        border: widget.inputBorder,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30)
+        ),
         suffixIcon: widget.suffixIcon,
       ),
       keyboardType: widget.textInputType,

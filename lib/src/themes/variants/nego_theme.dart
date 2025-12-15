@@ -337,6 +337,7 @@ class NegoDesignTheme {
 
 
   ThemeData theme(ColorScheme colorScheme) => ThemeData(
+    fontFamily: 'Comfortaa',
     useMaterial3: true,
     brightness: colorScheme.brightness,
     colorScheme: colorScheme,
@@ -344,8 +345,20 @@ class NegoDesignTheme {
       bodyColor: colorScheme.onSurface,
       displayColor: colorScheme.onSurface,
     ),
-    scaffoldBackgroundColor: colorScheme.background,
+    scaffoldBackgroundColor: colorScheme.onPrimary,
     canvasColor: colorScheme.surface,
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: WidgetStateProperty.all(colorScheme.primary),
+        foregroundColor: WidgetStateProperty.all(colorScheme.onPrimary),
+      )
+    ),
+    outlinedButtonTheme: OutlinedButtonThemeData(
+        style: ButtonStyle(
+          backgroundColor: WidgetStateProperty.all(colorScheme.primary),
+          foregroundColor: WidgetStateProperty.all(colorScheme.onPrimary),
+        )
+    )
   );
 
 
