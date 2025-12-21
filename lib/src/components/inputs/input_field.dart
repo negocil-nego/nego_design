@@ -13,6 +13,7 @@ class InputField extends StatefulWidget {
   final TextInputType? textInputType;
   final TextInputAction? textInputAction;
   final Function(String)? onChanged;
+  final String? Function(String?)? validator;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
 
@@ -32,6 +33,7 @@ class InputField extends StatefulWidget {
     this.textInputAction,
     this.prefixIcon,
     this.suffixIcon,
+    this.validator
   });
 
   @override
@@ -41,7 +43,7 @@ class InputField extends StatefulWidget {
 class _InputFieldState extends State<InputField> {
   @override
   Widget build(BuildContext context) {
-    final textField = TextField(
+    final textField = TextFormField(
       controller: widget.controller,
       decoration: InputDecoration(
         prefixIcon: widget.prefixIcon,
@@ -59,6 +61,7 @@ class _InputFieldState extends State<InputField> {
       onChanged: widget.onChanged,
       obscureText: widget.obscureText,
       maxLength: widget.maxLength,
+      validator: widget.validator,
     );
 
     return widget.label == null || widget.label!.isEmpty

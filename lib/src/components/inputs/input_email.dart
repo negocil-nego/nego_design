@@ -26,12 +26,13 @@ class InputEmail extends StatefulWidget {
     this.fillColor = Colors.black12,
     this.inputBorder = InputBorder.none,
     this.textInputAction = TextInputAction.next,
-    this.onChanged
+    this.onChanged,
   });
 
   @override
   State<InputEmail> createState() => _InputEmailState();
 }
+
 class _InputEmailState extends State<InputEmail> {
   @override
   Widget build(BuildContext context) {
@@ -47,10 +48,11 @@ class _InputEmailState extends State<InputEmail> {
       controller: widget.controller,
       inputBorder: widget.inputBorder,
       obscureText: widget.obscureText,
-      textInputType: TextInputType.emailAddress ,
+      textInputType: TextInputType.emailAddress,
       textInputAction: widget.textInputAction,
       prefixIcon: Icon(Icons.email_outlined),
       suffixIcon: Icon(Icons.close),
+      validator: Validators.email,
     );
   }
 }

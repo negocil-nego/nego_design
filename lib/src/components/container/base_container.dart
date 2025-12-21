@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 class BaseContainer extends StatelessWidget {
   final Widget child;
-  const BaseContainer({super.key, required this.child});
+  final String title;
+  final String description;
+  const BaseContainer({super.key, required this.child, required this.title, required this.description});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ class BaseContainer extends StatelessWidget {
                 spacing: 5,
                 children: [
                   Text(
-                    'Login',
+                    title,
                     style: TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.bold,
@@ -37,7 +39,7 @@ class BaseContainer extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'Faça login para continuar',
+                    description,
                     style: TextStyle(
                       fontSize: 15,
                       color: colorScheme.onPrimary,

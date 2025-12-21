@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nego_design/_import.dart';
 
-class InputEmailOrPhone extends StatefulWidget {
+class InputPhone extends StatefulWidget {
   final TextEditingController? controller;
   final String? label;
   final String? hintText;
@@ -11,29 +11,28 @@ class InputEmailOrPhone extends StatefulWidget {
   final bool obscureText;
   final int? maxLength;
   final InputBorder? inputBorder;
-  final TextInputAction? textInputAction;
+  final TextInputAction textInputAction;
   final Function(String)? onChanged;
 
-  const InputEmailOrPhone({
+  const InputPhone({
     super.key,
     this.label,
-    this.labelText = 'Email ou Telefone',
-    this.hintText = 'Digita o email ou contato',
+    this.labelText = 'Contato',
+    this.hintText = 'Digita o contato',
     this.controller,
     this.maxLength,
     this.obscureText = false,
     this.filled = true,
-    this.fillColor,
-    this.inputBorder,
-    this.textInputAction,
-    this.onChanged,
+    this.fillColor = Colors.black12,
+    this.inputBorder = InputBorder.none,
+    this.textInputAction = TextInputAction.next,
+    this.onChanged
   });
 
   @override
-  State<InputEmailOrPhone> createState() => _InputEmailOrPhoneState();
+  State<InputPhone> createState() => _InputPhoneState();
 }
-
-class _InputEmailOrPhoneState extends State<InputEmailOrPhone> {
+class _InputPhoneState extends State<InputPhone> {
   @override
   Widget build(BuildContext context) {
     return InputField(
@@ -48,14 +47,11 @@ class _InputEmailOrPhoneState extends State<InputEmailOrPhone> {
       controller: widget.controller,
       inputBorder: widget.inputBorder,
       obscureText: widget.obscureText,
-      textInputType: TextInputType.emailAddress,
+      textInputType: TextInputType.emailAddress ,
       textInputAction: widget.textInputAction,
-      prefixIcon: Icon(Icons.perm_phone_msg_outlined),
-      suffixIcon: IconButton(
-        icon: Icon(Icons.close),
-        onPressed: () => widget.controller?.clear(),
-      ),
-      validator: Validators.emailOrPhone,
+      prefixIcon: Icon(Icons.phone_android_rounded),
+      suffixIcon: Icon(Icons.close),
+      validator: Validators.phone,
     );
   }
 }

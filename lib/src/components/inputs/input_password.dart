@@ -24,7 +24,7 @@ class InputPassword extends StatefulWidget {
     this.fillColor = Colors.black12,
     this.inputBorder = InputBorder.none,
     this.textInputAction = TextInputAction.next,
-    this.onChanged
+    this.onChanged,
   });
 
   @override
@@ -32,6 +32,8 @@ class InputPassword extends StatefulWidget {
 }
 
 class _InputPasswordState extends State<InputPassword> {
+  bool _obscureText = true;
+
   @override
   Widget build(BuildContext context) {
     return InputField(
@@ -45,11 +47,17 @@ class _InputPasswordState extends State<InputPassword> {
       maxLength: widget.maxLength,
       controller: widget.controller,
       inputBorder: widget.inputBorder,
-      obscureText: true,
+      obscureText: _obscureText,
       textInputType: TextInputType.visiblePassword,
       textInputAction: widget.textInputAction,
       prefixIcon: Icon(Icons.lock_outline),
-      suffixIcon: Icon(Icons.visibility_off_sharp),
+      suffixIcon: IconButton(
+        icon: Icon(_obscureText? Icons.visibility_off_sharp : Icons.visibility_sharp),
+        onPressed: () {
+          setState(() { _obscureText = !_obscureText; });
+        },
+      ),
+      validator: Validators.password,
     );
   }
 }
