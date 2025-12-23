@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:nego_design/_import.dart';
-import 'package:nego_design/l10n/nego_localizations.dart';
 
 class InputEmailOrPhone extends StatefulWidget {
   final TextEditingController? controller;
@@ -56,7 +55,7 @@ class _InputEmailOrPhoneState extends State<InputEmailOrPhone> {
         icon: Icon(Icons.close),
         onPressed: () => widget.controller?.clear(),
       ),
-      validator: Validators.emailOrPhone,
+      validator: (value) => Validators.emailOrPhone(value, context),
     );
   }
 }

@@ -1,19 +1,69 @@
 {
   "getStarted": "Get Started",
   "enter": "Enter",
+  "create": "Create",
   "enterWith": "Enter with {method}",
   "registration": "Registration",
+  "authentication": "Authentication",
+  "requiredField": "{field} required",
+  "invalidField": "{field} invalid",
+  "withoutAccount": "Log in without an account",
+  "next": "Next",
+  "confirm": "Confirm",
 
-  "loginTitle": "Authentication",
   "loginDesc": "Complete the authentication process, provide your credentials",
   "loginForgotPassword": "Forgot my password?",
   "loginNotHaveAccount": "I don't have an account?",
 
+  "registerDesc": "Complete the account creation process and fill in your details",
+  "registerAlreadyHaveAccount": "Do I already have an account?",
+
+  "forgetPasswordTitle": "Forgot my password",
+  "forgetPasswordDesc": "Initiates the password recovery process",
+  "forgetPasswordValidateForm": "Fill in the information",
+  "forgetPasswordValidateOtp": "OTP code validation",
+  "forgetPasswordResetPassword": "Changing your password",
+  "forgetPasswordStepDesc": "To complete the password recovery process, you must complete all of the steps below.",
+
+  "otpVerificationTitle": "Validation of the otp",
+  "otpVerificationDesc": "Check the OTP code sent to the email address or contact number provided",
+  "otpVerificationResendCode": "Resend code",
+
+  "resetPasswordTitle": "Change password",
+  "resetPasswordDesc": "Fill in the details to change your password, save your password in a safe place, or activate one of our security methods",
+
   "orDividerText": "Or",
 
   "inputEmailOrPhoneLabelText": "Email or Telephone",
-  "inputEmailOrPhoneHintText": "Enter your email or contact details",
+  "inputEmailOrPhoneHintText": "Enter your email or phone number",
 
   "inputPasswordLabelText": "Password",
-  "inputPasswordHintText": "Enter your password"
+  "inputPasswordHintText": "Enter your password",
+
+  "inputConfirmPasswordLabelText": "Confirm password",
+  "inputConfirmPasswordHintText": "Enter your password",
+
+  "inputPhoneLabelText": "Contact",
+  "inputPhoneHintText": "Enter your phone number",
+
+  "inputEmailLabelText": "Email",
+  "inputEmailHintText": "Enter your email",
+
+  "validatePhoneInvalidPlus": "Invalid format. Use: +code number",
+  "validatePhoneShort": "Phone number too short",
+  "validatePhoneLong": "Phone number too long",
+  "validatePhoneStartPlus": "The phone number must contain only numbers or start with +",
+  "validatePhoneMin8": "Phone number too short (minimum 8 digits)",
+  "validatePhoneMax15": "Phone number too long (maximum 15 digits)",
+
+  "validatePasswordMin6": "The password must be at least 6 characters long",
+  "validatePassword1Letter": "The password must contain at least 1 uppercase letter",
+  "validatePassword1Number": "The password must contain at least 1 number",
+  "validatePassword1Symbol": "The password must contain at least 1 symbol",
+
+  "resetPasswordMin6": "Minimum 6 characters",
+  "resetPassword1Letter": "A capital letter",
+  "resetPassword1Number": "At least 1 number",
+  "resetPassword1Symbol": "At least 1 symbol",
+  "resetPasswordEquals": "Passwords are the same"
 }

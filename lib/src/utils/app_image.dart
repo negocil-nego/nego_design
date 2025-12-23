@@ -3,4 +3,6 @@ class NegoAppImage {
   static final google = 'assets/google.png';
   static final facebook = 'assets/facebook.png';
   static final linkedin = 'assets/linkedin.png';
+  
+  static final verificationCode = 'assets/verification_code.json';
 }

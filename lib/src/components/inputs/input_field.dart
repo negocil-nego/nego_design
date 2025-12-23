@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class InputField extends StatefulWidget {
+class InputField extends StatelessWidget {
   final TextEditingController? controller;
   final String? label;
   final String? hintText;
@@ -16,6 +16,7 @@ class InputField extends StatefulWidget {
   final String? Function(String?)? validator;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
+  final bool readOnly;
 
   const InputField({
     super.key,
@@ -26,6 +27,7 @@ class InputField extends StatefulWidget {
     this.controller,
     this.filled = true,
     this.obscureText = false,
+    this.readOnly = false,
     this.maxLength,
     this.fillColor,
     this.inputBorder,
@@ -37,39 +39,37 @@ class InputField extends StatefulWidget {
   });
 
   @override
-  State<InputField> createState() => _InputFieldState();
-}
-
-class _InputFieldState extends State<InputField> {
-  @override
   Widget build(BuildContext context) {
-    final textField = TextFormField(
-      controller: widget.controller,
+    final colorScheme = Theme.of(context).colorScheme;
+
+    final textFormField = TextFormField(
+      controller: controller,
       decoration: InputDecoration(
-        prefixIcon: widget.prefixIcon,
-        hintText: widget.hintText,
-        labelText: widget.labelText,
-        fillColor: widget.fillColor,
-        filled: widget.filled,
-        border: OutlineInputBorder(
+        labelText:  readOnly ? null : labelText,
+        fillColor: readOnly ? colorScheme.primary.withAlpha(90) :  fillColor,
+        prefixIcon: prefixIcon,
+        suffixIcon: suffixIcon,
+        hintText: hintText,
+        filled: filled,
+        border:  OutlineInputBorder(
           borderRadius: BorderRadius.circular(30)
-        ),
-        suffixIcon: widget.suffixIcon,
+        )
       ),
-      keyboardType: widget.textInputType,
-      textInputAction: widget.textInputAction,
-      onChanged: widget.onChanged,
-      obscureText: widget.obscureText,
-      maxLength: widget.maxLength,
-      validator: widget.validator,
+      textInputAction: textInputAction,
+      keyboardType: textInputType,
+      obscureText: obscureText,
+      onChanged: onChanged,
+      maxLength: maxLength,
+      validator: validator,
+      readOnly: readOnly,
     );
 
-    return widget.label == null || widget.label!.isEmpty
-        ? textField
+    return label == null || label!.isEmpty
+        ? textFormField
         : Column(
             spacing: 8,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [Text(widget.label!), textField],
+            children: [Text(label!), textFormField],
           );
   }
 }

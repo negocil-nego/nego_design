@@ -1,6 +1,9 @@
-String? validateEmail(String? value) {
+import 'package:flutter/material.dart';
+import 'package:nego_design/_import.dart';
+
+String? validateEmail(String? value, BuildContext context) {
   if (value == null || value.isEmpty) {
-    return 'Email obrigatório';
+    return NegoLocalizations.of(context)?.requiredField('Email') ?? 'Email required';
   }
 
   final emailRegex = RegExp(
@@ -8,7 +11,7 @@ String? validateEmail(String? value) {
   );
 
   if (!emailRegex.hasMatch(value)) {
-    return 'Email inválido';
+    return NegoLocalizations.of(context)?.invalidField('Email') ?? 'Email invalid';
   }
 
   return null;

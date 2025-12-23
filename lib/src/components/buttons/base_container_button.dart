@@ -6,9 +6,12 @@ class BaseContainerButton extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final Alignment alignment;
   final String label;
+
+  final bool isDisabled;
   const BaseContainerButton({
     super.key,
     this.label = 'Confirm',
+    this.isDisabled = false,
     this.onPressed,
     this.padding = const EdgeInsets.symmetric(vertical: 20),
     this.alignment = Alignment.bottomRight,
@@ -20,12 +23,12 @@ class BaseContainerButton extends StatelessWidget {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
       child: ElevatedButton(
-        onPressed: onPressed,
+        onPressed: isDisabled ? () { } : onPressed,
         style: ElevatedButton.styleFrom(
           padding: padding,
-          backgroundColor: colorScheme.primary,
+          backgroundColor: isDisabled ? colorScheme.primary.withAlpha(150) : colorScheme.primary,
         ),
-        child: Text(label),
+        child: Text(label, style: TextStyle(color: colorScheme.onPrimary),),
       ),
     );
   }

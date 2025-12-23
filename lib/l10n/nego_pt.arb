@@ -1,13 +1,36 @@
 {
   "getStarted": "Comece agora",
   "enter": "Entrar",
+  "create": "Criar",
   "enterWith": "Entrar com {method}",
   "registration": "Cadastramento",
+  "authentication": "Autenticação",
+  "requiredField": "{field} obrigatório",
+  "invalidField": "{field} inválido",
+  "withoutAccount": "Entra sem conta",
+  "next": "Avançar",
+  "confirm": "Confirma",
 
-  "loginTitle": "Autenticação",
   "loginDesc": "Faça o processo de autenticação, forneça as suas credências",
   "loginForgotPassword": "Esqueci minha senha?",
   "loginNotHaveAccount": "Não tenho conta?",
+
+  "registerDesc": "Faça o processo de criação da sua conta, preencha os dados",
+  "registerAlreadyHaveAccount": "Já tenho conta?",
+
+  "forgetPasswordTitle": "Esquece a minha senha",
+  "forgetPasswordDesc": "Inicializa o processo para recuperação de senha",
+  "forgetPasswordValidateForm": "Preencha as informações",
+  "forgetPasswordValidateOtp": "Validação do código otp",
+  "forgetPasswordResetPassword": "Alteração da senha",
+  "forgetPasswordStepDesc": "Para concluir todo o processo de recuperação de senha deves concluir todos processos abaixo",
+
+  "otpVerificationTitle": "Validação do otp",
+  "otpVerificationDesc": "Verifica o código otp foi enviado para o email ou contato informado",
+  "otpVerificationResendCode": "Reenviar código",
+
+  "resetPasswordTitle": "Alterar a senha",
+  "resetPasswordDesc": "Preencha os detalhes para alterar a sua palavra-passe, guarde-a num local seguro ou ative um dos nossos métodos de segurança",
 
   "orDividerText": "Ou",
 
@@ -15,5 +38,32 @@
   "inputEmailOrPhoneHintText": "Digita o email ou contato",
 
   "inputPasswordLabelText": "Senha",
-  "inputPasswordHintText": "Digite sua senha"
+  "inputPasswordHintText": "Digite sua senha",
+
+  "inputConfirmPasswordLabelText": "Confirma a senha",
+  "inputConfirmPasswordHintText": "Digite sua senha",
+
+  "inputPhoneLabelText": "Telefone",
+  "inputPhoneHintText": "Digite seu telefone",
+
+  "inputEmailLabelText": "Email",
+  "inputEmailHintText": "Digite seu email",
+
+  "validatePhoneInvalidPlus": "Formato inválido. Use: +código número",
+  "validatePhoneShort": "Telefone muito curto",
+  "validatePhoneLong": "Telefone muito longo",
+  "validatePhoneStartPlus": "Telefone deve conter apenas números ou começar com +",
+  "validatePhoneMin8": "Telefone muito curto (mínimo 8 dígitos)",
+  "validatePhoneMax15": "Telefone muito longo (máximo 15 dígitos)",
+
+  "validatePasswordMin6": "A senha deve ter no mínimo 6 caracteres",
+  "validatePassword1Letter": "A senha deve conter pelo menos 1 letra maiúscula",
+  "validatePassword1Number": "A senha deve conter pelo menos 1 número",
+  "validatePassword1Symbol": "A senha deve conter pelo menos 1 símbolo",
+
+  "resetPasswordMin6": "Mínimo 6 caracteres",
+  "resetPassword1Letter": "Um letra maiúscula",
+  "resetPassword1Number": "Pelo menos 1 número",
+  "resetPassword1Symbol": "Pelo menos 1 símbolo",
+  "resetPasswordEquals": "Senhas são iguais"
 }

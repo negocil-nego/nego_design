@@ -1,8 +1,13 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:nego_design/_import.dart';
 
 class PageRegister extends StatefulWidget {
-  const PageRegister({super.key});
+  final Function(RegisterModel model)? onPressed;
+  final String? pageNamedLogin;
+  final String? pageNamedHome;
+
+  const PageRegister({super.key, this.pageNamedLogin, this.onPressed, this.pageNamedHome});
 
   @override
   State<PageRegister> createState() => _PageRegisterState();
@@ -10,14 +15,28 @@ class PageRegister extends StatefulWidget {
 
 class _PageRegisterState extends State<PageRegister> {
   final _passwordController = TextEditingController();
-  final _emailController = TextEditingController();
   final _phoneController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+
+  late TapGestureRecognizer _loginRecognizer;
+
+  @override
+  void initState() {
+    super.initState();
+    if (mounted) {
+      _loginRecognizer = TapGestureRecognizer()..onTap = () {
+        Navigator.pushNamed(context, widget.pageNamedLogin!);
+      };
+    }
+  }
 
   @override
   void dispose() {
     super.dispose();
     _emailController.dispose();
     _phoneController.dispose();
+    _loginRecognizer.dispose();
     _passwordController.dispose();
   }
 
@@ -25,8 +44,8 @@ class _PageRegisterState extends State<PageRegister> {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     return BaseContainer(
-      title: 'Cadastro',
-      description: 'Faça o processo de criação da sua conta',
+      title: NegoLocalizations.of(context)?.registration ?? 'Registration',
+      description: NegoLocalizations.of(context)?.registerDesc ?? 'Complete the account creation process and fill in your details',
       child: ListView(
         shrinkWrap: true,
         children: [
@@ -35,41 +54,57 @@ class _PageRegisterState extends State<PageRegister> {
           InputPhone(controller: _phoneController),
           const SizedBox(height: 20),
           InputPassword(controller: _passwordController),
-          const SizedBox(height: 10),
-          BaseContainerButton(onPressed: () {}),
+          const SizedBox(height: 20),
+          BaseContainerButton(
+            label: NegoLocalizations.of(context)?.create ?? 'Create',
+              onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                  if (widget.onPressed != null) {
+                    widget.onPressed!(
+                      RegisterModel(
+                        email: _emailController.text,
+                        phone: _phoneController.text,
+                        password: _passwordController.text,
+                      ),
+                    );
+                  }
+                }
+              }
+          ),
           const SizedBox(height: 20),
           const OrDivider(),
           const SizedBox(height: 20),
           SocialLinkButton(
-            label: 'Login com Google',
+            label: NegoLocalizations.of(context)?.enterWith('Google') ?? 'Enter with Google',
             image: NegoAppImage.google,
           ),
           const SizedBox(height: 20),
           SocialLinkButton(
-            label: 'Login com Facebook',
+            label: NegoLocalizations.of(context)?.enterWith('Facebook') ?? 'Enter with Facebook',
             image: NegoAppImage.facebook,
           ),
           const SizedBox(height: 20),
           Container(
-            //child: TextButton(onPressed: () {}, child: Text('Esqueci minha senha ?')),
             alignment: Alignment.center,
             child: Text.rich(
               TextSpan(
-                text: 'Não tenho conta?',
+                text: NegoLocalizations.of(context)?.registerAlreadyHaveAccount ?? 'Do I already have an account?',
                 children: [
-                  TextSpan(text: '  '),
+                  TextSpan(text: ' '),
                   TextSpan(
-                    text: 'Cadastramento',
+                    text: NegoLocalizations.of(context)?.authentication ?? 'Authentication',
                     style: TextStyle(
                       color: colorScheme.primary,
                       fontWeight: FontWeight.bold,
                       decoration: TextDecoration.underline,
                     ),
+                    recognizer: _loginRecognizer,
                   ),
                 ],
               ),
             ),
           ),
+          LinkEnterWithoutAccount(pageNamedHome: widget.pageNamedHome,)
         ],
       ),
     );

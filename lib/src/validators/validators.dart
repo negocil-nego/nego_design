@@ -1,20 +1,18 @@
+import 'package:flutter/material.dart';
 import 'package:nego_design/_import.dart';
 
 class Validators {
-  /// Valida se é email ou telefone válido
-  static String? emailOrPhone(String? value) {
-    return validateEmailOrPhone(value);
+  static String? emailOrPhone(String? value, BuildContext context) {
+    return validateEmailOrPhone(value, context);
   }
-  static String? email(String? value) {
-    return validateEmail(value);
+  static String? email(String? value, BuildContext context) {
+    return validateEmail(value, context);
   }
-  /// Valida formato de telefone (com ou sem código do país)
-  static String? phone(String? value) {
-   return validatePhone(value);
+  static String? phone(String? value, BuildContext context) {
+   return validatePhone(value, context);
   }
-
-  static String? password(String? value) {
-    return validatePassword(value);
+  static String? password(String? value, BuildContext context) {
+    return validatePassword(value, context);
   }
   static String? Function(String?) combine(
       List<String? Function(String?)> validators

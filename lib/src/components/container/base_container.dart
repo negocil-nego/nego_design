@@ -4,7 +4,8 @@ class BaseContainer extends StatelessWidget {
   final Widget child;
   final String title;
   final String description;
-  const BaseContainer({super.key, required this.child, required this.title, required this.description});
+  final bool visibleBackButton;
+  const BaseContainer({super.key, required this.child, required this.title, required this.description, this.visibleBackButton = false});
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +25,27 @@ class BaseContainer extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            if (visibleBackButton) ... [
+              const SizedBox(height: 60),
+              Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  decoration: BoxDecoration(
+                      color: colorScheme.onPrimary,
+                      borderRadius: BorderRadius.circular(50)
+                  ),
+                  child: IconButton(
+                      onPressed: () {
+                        if(Navigator.canPop(context)) Navigator.pop(context);
+                      },
+                      icon: Icon(Icons.arrow_back)
+                  )
+              ),
+              const SizedBox(height: 20),
+            ] else ...[
+              const SizedBox(height: 80),
+            ],
             Container(
-              padding: const EdgeInsets.only(top: 100, left: 20),
+              margin: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 spacing: 5,
@@ -33,11 +53,12 @@ class BaseContainer extends StatelessWidget {
                   Text(
                     title,
                     style: TextStyle(
-                      fontSize: 40,
+                      fontSize: 30,
                       fontWeight: FontWeight.bold,
                       color: colorScheme.onPrimary,
                     ),
                   ),
+                  const SizedBox(height: 10),
                   Text(
                     description,
                     style: TextStyle(

@@ -1,6 +1,6 @@
 name: nego_design
 description: A modern, responsive design system for Flutter applications with simple and customizable widgets
-version: 0.0.6
+version: 0.0.7
 homepage: https://github.com/negoflutter/nego_design
 repository: https://github.com/negoflutter/nego_design
 issue_tracker: https://github.com/negoflutter/nego_design/issues
@@ -21,6 +21,8 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   intl: any
+  flutter_otp_text_field: ^1.5.1+1
+  lottie: ^3.3.2
 
 dev_dependencies:
   flutter_test:
@@ -60,6 +62,7 @@ flutter:
     - assets/facebook.png
     - assets/google.png
     - assets/linkedin.png
+    - assets/verification_code.json
   #
   # For details regarding assets in packages, see
   # https://flutter.dev/to/asset-from-package
