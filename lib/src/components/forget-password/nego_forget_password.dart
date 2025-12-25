@@ -3,11 +3,15 @@ import 'package:nego_design/_import.dart';
 
 class NegoForgetPassword extends StatefulWidget {
   final Function(ForgetPasswordModel model)? onPressed;
+  final Function()? onBackButton;
+  final bool visibleBackButton;
   final String? pageNamedHome;
 
   const NegoForgetPassword({
     super.key, this.pageNamedHome,
     this.onPressed,
+    this.onBackButton,
+    this.visibleBackButton = false,
   });
 
   @override
@@ -28,6 +32,8 @@ class _NegoForgetPasswordState extends State<NegoForgetPassword> {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     return BaseContainer(
+      onBackButton: widget.onBackButton,
+      visibleBackButton: widget.visibleBackButton,
       title: NegoLocalizations.of(context)?.forgetPasswordTitle ?? 'Forgot my password',
       description: NegoLocalizations.of(context)?.forgetPasswordDesc ?? 'Initiates the password recovery process',
       child: Form(
