@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 /// A container that displays a background image with a continuous and
 /// looping zoom (scale) animation effect.
 ///
@@ -10,11 +11,16 @@ class ImageScaleTransactionContainer extends StatefulWidget {
   /// Supports network images (if the path starts with 'http') or
   /// asset images.
   final String image;
+  /// The duration of the scale animation in seconds.
+  /// Defaults to 20 seconds.
+  final int seconds;
   /// The widget to be displayed on top of the animated background image.
   final Widget child;
+
   /// Creates an [ImageScaleTransactionContainer].
   const ImageScaleTransactionContainer({
     super.key,
+    this.seconds = 20,
     required this.image,
     required this.child,
   });
@@ -23,8 +29,7 @@ class ImageScaleTransactionContainer extends StatefulWidget {
   State<ImageScaleTransactionContainer> createState() => _ImageScaleTransactionContainerState();
 }
 
-class _ImageScaleTransactionContainerState extends State<ImageScaleTransactionContainer>
-    with SingleTickerProviderStateMixin {
+class _ImageScaleTransactionContainerState extends State<ImageScaleTransactionContainer> with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
   late final Animation<double> _animate;
 
@@ -33,17 +38,14 @@ class _ImageScaleTransactionContainerState extends State<ImageScaleTransactionCo
     super.initState();
 
     _controller = AnimationController(
-      duration: const Duration(seconds: 20),
+      duration:  Duration(seconds: widget.seconds),
       vsync: this,
     )..repeat(reverse: true);
 
     _animate = Tween<double>(
       begin: 1.0,
       end: 1.5,
-    ).animate(CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeInOut,
-    ));
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
   }
 
   @override
@@ -68,22 +70,22 @@ class _ImageScaleTransactionContainerState extends State<ImageScaleTransactionCo
                 scale: _animate,
                 child: widget.image.startsWith('http')
                     ? Image.network(
-                  widget.image,
-                  fit: BoxFit.cover,
-                  width: size.width,
-                  height: size.height,
-                )
+                        widget.image,
+                        fit: BoxFit.cover,
+                        width: size.width,
+                        height: size.height,
+                      )
                     : Image.asset(
-                  widget.image,
-                  fit: BoxFit.cover,
-                  width: size.width,
-                  height: size.height,
-                ),
+                        widget.image,
+                        fit: BoxFit.cover,
+                        width: size.width,
+                        height: size.height,
+                      ),
               ),
             ),
           ),
         ),
-        widget.child
+        widget.child,
       ],
     );
   }

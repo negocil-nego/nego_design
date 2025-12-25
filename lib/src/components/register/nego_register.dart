@@ -66,33 +66,25 @@ class _NegoRegisterState extends State<NegoRegister> {
             BaseContainerButton(
               label: NegoLocalizations.of(context)?.create ?? 'Create',
               onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  if (widget.onPressed != null) {
-                    widget.onPressed!(
-                      RegisterModel(
-                        email: _emailController.text,
-                        phone: _phoneController.text,
-                        password: _passwordController.text,
-                      ),
-                    );
-                  }
-                }
+                if (!_formKey.currentState!.validate()) return;
+                if (widget.onPressed == null) return;
+                widget.onPressed!(RegisterModel(
+                  email: _emailController.text,
+                  phone: _phoneController.text,
+                  password: _passwordController.text,
+                ));
               },
             ),
             const SizedBox(height: 20),
             const OrDivider(),
             const SizedBox(height: 20),
             SocialLinkButton(
-              label:
-                  NegoLocalizations.of(context)?.enterWith('Google') ??
-                  'Enter with Google',
+              label: NegoLocalizations.of(context)?.enterWith('Google') ?? 'Enter with Google',
               image: NegoAppImage.google,
             ),
             const SizedBox(height: 20),
             SocialLinkButton(
-              label:
-                  NegoLocalizations.of(context)?.enterWith('Facebook') ??
-                  'Enter with Facebook',
+              label: NegoLocalizations.of(context)?.enterWith('Facebook') ?? 'Enter with Facebook',
               image: NegoAppImage.facebook,
             ),
             const SizedBox(height: 20),
@@ -100,15 +92,11 @@ class _NegoRegisterState extends State<NegoRegister> {
               alignment: Alignment.center,
               child: Text.rich(
                 TextSpan(
-                  text:
-                      NegoLocalizations.of(context)?.registerAlreadyHaveAccount ??
-                      'Do I already have an account?',
+                  text: NegoLocalizations.of(context)?.registerAlreadyHaveAccount ?? 'Do I already have an account?',
                   children: [
                     TextSpan(text: ' '),
                     TextSpan(
-                      text:
-                          NegoLocalizations.of(context)?.authentication ??
-                          'Authentication',
+                      text: NegoLocalizations.of(context)?.authentication ?? 'Authentication',
                       style: TextStyle(
                         color: colorScheme.primary,
                         fontWeight: FontWeight.bold,

@@ -1,13 +1,39 @@
 import 'package:flutter/material.dart';
 
+/// A scaffold with a gradient header and rounded content area.
+///
+/// Provides a consistent layout with a title, description, optional back button,
+/// and a white rounded container for the main content.
+///
+/// Example:
+/// ```dart
+/// BaseContainer(
+///   title: 'Welcome',
+///   description: 'Sign in to continue',
+///   visibleBackButton: true,
+///   child: YourContentWidget(),
+/// )
+/// ```
 class BaseContainer extends StatelessWidget {
+  /// The main content displayed in the rounded container.
   final Widget child;
+  /// Title displayed in the gradient header.
   final String title;
+  /// Description text displayed below the title.
   final String description;
+  /// Whether to show the back button.
   final bool visibleBackButton;
+  /// Callback when back button is pressed. Defaults to Navigator.pop.
   final Function()? onBackButton;
-
-  const BaseContainer({super.key, required this.child, required this.title, required this.description, this.visibleBackButton = false, this.onBackButton});
+  /// Creates a base container with header and content area.
+  const BaseContainer({
+    super.key,
+    required this.child,
+    required this.title,
+    required this.description,
+    this.visibleBackButton = false,
+    this.onBackButton,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -27,20 +53,21 @@ class BaseContainer extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            if (visibleBackButton || onBackButton != null) ... [
+            if (visibleBackButton || onBackButton != null) ...[
               const SizedBox(height: 60),
               Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 20),
-                  decoration: BoxDecoration(
-                      color: colorScheme.onPrimary,
-                      borderRadius: BorderRadius.circular(50)
-                  ),
-                  child: IconButton(
-                      onPressed: onBackButton ?? () {
-                        if(Navigator.canPop(context)) Navigator.pop(context);
+                margin: const EdgeInsets.symmetric(horizontal: 20),
+                decoration: BoxDecoration(
+                  color: colorScheme.onPrimary,
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                child: IconButton(
+                  onPressed: onBackButton ??
+                          () {
+                        if (Navigator.canPop(context)) Navigator.pop(context);
                       },
-                      icon: Icon(Icons.arrow_back)
-                  )
+                  icon: Icon(Icons.arrow_back),
+                ),
               ),
               const SizedBox(height: 20),
             ] else ...[

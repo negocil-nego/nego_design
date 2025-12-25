@@ -1,19 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:nego_design/_import.dart';
 
+/// A text field for email input with validation.
+///
+/// Includes email icon, close button, and automatic email validation.
+/// Uses email keyboard type for better user experience.
+///
+/// Example:
+/// ```dart
+/// InputEmail(
+///   controller: emailController,
+///   onChanged: (value) => print(value),
+/// )
+/// ```
 class InputEmail extends StatefulWidget {
+  /// Controller for the email field.
   final TextEditingController? controller;
+  /// Optional label displayed above the field.
   final String? label;
+  /// Placeholder text inside the field.
   final String? hintText;
+  /// Label text for the field.
   final String? labelText;
+  /// Whether the field has a filled background.
   final bool? filled;
+  /// Background color when filled is true.
   final Color? fillColor;
+  /// Whether to obscure the text (not recommended for email).
   final bool obscureText;
+  /// Maximum number of characters allowed.
   final int? maxLength;
+  /// Border style for the input field.
   final InputBorder? inputBorder;
+  /// Keyboard action button type.
   final TextInputAction textInputAction;
+  /// Callback when the text changes.
   final Function(String)? onChanged;
-
+  /// Creates an email input field.
   const InputEmail({
     super.key,
     this.label,

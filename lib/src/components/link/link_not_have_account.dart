@@ -2,8 +2,21 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:nego_design/_import.dart';
 
+/// A text link to navigate to the registration page.
+///
+/// Displays "I don't have an account? Registration" with the word
+/// "Registration" styled as a clickable link.
+///
+/// Example:
+/// ```dart
+/// LinkNotHaveAccount(
+///   pageNamedRegister: '/register',
+/// )
+/// ```
 class LinkNotHaveAccount extends StatefulWidget {
+  /// Named route for the registration page.
   final String? pageNamedRegister;
+  /// Creates a link to the registration page.
   const LinkNotHaveAccount({super.key, this.pageNamedRegister});
 
   @override
@@ -18,8 +31,9 @@ class _LinkNotHaveAccountState extends State<LinkNotHaveAccount> {
     super.initState();
     if (mounted) {
       _registrationRecognizer = TapGestureRecognizer()..onTap = () {
-        Navigator.pushNamed(context, widget.pageNamedRegister!);
-      };
+          if (widget.pageNamedRegister == null) return;
+          Navigator.pushNamed(context, widget.pageNamedRegister!);
+        };
     }
   }
 

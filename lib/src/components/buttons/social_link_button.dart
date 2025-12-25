@@ -1,10 +1,28 @@
 import 'package:flutter/material.dart';
 
+/// A button for social login with an icon and label.
+///
+/// Displays an outlined button with a social media icon and text label.
+/// The icon is loaded from the `nego_design` package.
+///
+/// Example:
+/// ```dart
+/// SocialLinkButton(
+///   label: 'Continue with Google',
+///   image: 'assets/google_icon.png',
+/// )
+/// ```
 class SocialLinkButton extends StatelessWidget {
+  /// Text displayed next to the icon.
   final String label;
+  /// Asset path for the social media icon.
   final String image;
-
-  const SocialLinkButton({super.key, required this.label, required this.image});
+  /// Creates a social login button.
+  const SocialLinkButton({
+    super.key,
+    required this.label,
+    required this.image,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +38,12 @@ class SocialLinkButton extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(image, width: 20, height: 20, package: 'nego_design',),
+          Image.asset(
+            image,
+            width: 20,
+            height: 20,
+            package: 'nego_design',
+          ),
           const SizedBox(width: 20),
           Text(label, style: Theme.of(context).textTheme.bodyMedium),
         ],

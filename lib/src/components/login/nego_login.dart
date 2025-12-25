@@ -1,18 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:nego_design/_import.dart';
 
+/// A complete login screen with email/phone and password inputs.
+///
+/// Includes form validation, forgot password link, social login buttons,
+/// and registration link. Validates inputs before submitting credentials.
+///
+/// Example:
+/// ```dart
+/// NegoLogin(
+///   onPressed: (model) => handleLogin(model),
+///   pageNamedForgetPassword: '/forgot-password',
+///   pageNamedRegister: '/register',
+///   pageNamedHome: '/home',
+/// )
+/// ```
 class NegoLogin extends StatefulWidget {
+  /// Callback when login form is submitted with valid data.
   final Function(LoginModel model)? onPressed;
+  /// Named route for the forgot password page.
   final String? pageNamedForgetPassword;
+  /// Named route for the registration page.
   final String? pageNamedRegister;
+  /// Named route for the home page (skip login option).
   final String? pageNamedHome;
 
+  /// Creates a login screen.
   const NegoLogin({
     super.key,
     this.onPressed,
     this.pageNamedHome,
     this.pageNamedRegister,
-    this.pageNamedForgetPassword
+    this.pageNamedForgetPassword,
   });
 
   @override
@@ -48,7 +67,7 @@ class _NegoLoginState extends State<NegoLogin> {
             TextButton(
               onPressed: () {
                 if (widget.pageNamedForgetPassword == null) return;
-                Navigator.pushNamed(context,widget.pageNamedForgetPassword!);
+                Navigator.pushNamed(context, widget.pageNamedForgetPassword!);
               },
               child: Text(NegoLocalizations.of(context)?.loginForgotPassword ?? 'Forgot my password?',
               ),
@@ -59,7 +78,7 @@ class _NegoLoginState extends State<NegoLogin> {
               onPressed: () {
                 if (!_formKey.currentState!.validate()) return;
                 if (widget.onPressed == null) return;
-                widget.onPressed!( LoginModel(
+                widget.onPressed!(LoginModel(
                   emailOrPhone: _emailOrPhoneController.text,
                   password: _passwordController.text,
                 ));
@@ -74,12 +93,17 @@ class _NegoLoginState extends State<NegoLogin> {
             ),
             const SizedBox(height: 20),
             SocialLinkButton(
-              label: NegoLocalizations.of(context)?.enterWith('Facebook') ?? 'Enter with Facebook',
+              label: NegoLocalizations.of(context)?.enterWith('Facebook') ??
+                  'Enter with Facebook',
               image: NegoAppImage.facebook,
             ),
             const SizedBox(height: 20),
-            LinkNotHaveAccount(pageNamedRegister: widget.pageNamedRegister,),
-            LinkEnterWithoutAccount(pageNamedHome: widget.pageNamedHome,)
+            LinkNotHaveAccount(
+              pageNamedRegister: widget.pageNamedRegister,
+            ),
+            LinkEnterWithoutAccount(
+              pageNamedHome: widget.pageNamedHome,
+            )
           ],
         ),
       ),

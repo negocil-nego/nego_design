@@ -1,3 +1,3 @@
-## 0.0.10
+## 0.0.11
 
-* TODO: add method visibleBackButton, onBackButton in NegoForgetPassword.
+* TODO: valid form in NegoResetPassword.

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:nego_design/_import.dart';
-import 'package:nego_design/l10n/nego_localizations.dart';
 
 class NegoApp extends StatelessWidget {
   final GlobalKey<NavigatorState>? navigatorKey;

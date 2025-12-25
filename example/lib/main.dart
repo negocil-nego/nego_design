@@ -51,7 +51,7 @@ class _MyAppState extends State<MyApp> {
     return NegoApp(
       debugShowCheckedModeBanner: false,
       title: 'NegoDesign',
-      home: NegoRegister(),
+      home: NegoResetPassword(),
     );
   }
 }

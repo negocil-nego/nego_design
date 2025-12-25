@@ -1,14 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:nego_design/_import.dart';
 
+/// A screen for password recovery.
+///
+/// Displays a form to collect email or phone for password reset.
+/// Shows recovery steps and validates input before proceeding.
+///
+/// Example:
+/// ```dart
+/// NegoForgetPassword(
+///   onPressed: (model) => handlePasswordReset(model),
+///   visibleBackButton: true,
+/// )
+/// ```
 class NegoForgetPassword extends StatefulWidget {
+  /// Callback when the form is submitted with valid data.
   final Function(ForgetPasswordModel model)? onPressed;
+  /// Callback when back button is pressed.
   final Function()? onBackButton;
+  /// Whether to show the back button.
   final bool visibleBackButton;
+  /// Named route for the home page link.
   final String? pageNamedHome;
-
+  /// Creates a password recovery screen.
   const NegoForgetPassword({
-    super.key, this.pageNamedHome,
+    super.key,
+    this.pageNamedHome,
     this.onPressed,
     this.onBackButton,
     this.visibleBackButton = false,
@@ -70,13 +87,15 @@ class _NegoForgetPasswordState extends State<NegoForgetPassword> {
               onPressed: () {
                 if (!_formKey.currentState!.validate()) return;
                 if (widget.onPressed == null) return;
-                widget.onPressed!( ForgetPasswordModel(
+                widget.onPressed!(ForgetPasswordModel(
                   emailOrPhone: _emailOrPhoneController.text,
                 ));
               },
             ),
             const SizedBox(height: 10),
-            LinkEnterWithoutAccount(pageNamedHome: widget.pageNamedHome,)
+            LinkEnterWithoutAccount(
+              pageNamedHome: widget.pageNamedHome,
+            )
           ],
         ),
       ),
