@@ -46,7 +46,7 @@ class _NegoOnboardingState extends State<NegoOnboarding> {
         onPageChanged: (index) {},
         children: List.generate(
           widget.models.length,
-          (index) => PageItemIndicateNumberOnboarding(
+          (index) => OnboardingIndicateNumber(
             key: ValueKey('onboarding_page_$index'),
             alignmentIndicator: widget.alignmentIndicator,
             buttonType: widget.buttonType,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nego_design/_import.dart';
 
-class PageItemIndicateNumberOnboarding extends StatelessWidget {
+class OnboardingIndicateNumber extends StatelessWidget {
   final OnboardingBackgroundType backgroundType;
   final OnboardingIndicatorType indicatorType;
   final OnboardingButtonType buttonType;
@@ -12,7 +12,7 @@ class PageItemIndicateNumberOnboarding extends StatelessWidget {
   final int length;
   final int index;
 
-  const PageItemIndicateNumberOnboarding({
+  const OnboardingIndicateNumber({
     super.key,
     required this.model,
     required this.index,

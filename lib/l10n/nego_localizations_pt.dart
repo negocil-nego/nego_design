@@ -105,7 +105,7 @@ class NegoLocalizationsPt extends NegoLocalizations {
   String get orDividerText => 'Ou';
 
   @override
-  String get inputEmailOrPhoneLabelText => 'Email ou Telephone';
+  String get inputEmailOrPhoneLabelText => 'Email ou Telefone';
 
   @override
   String get inputEmailOrPhoneHintText => 'Digita o email ou contato';
