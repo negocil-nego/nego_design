@@ -1,3 +1,4 @@
+export 'input_button_search.dart';
 export 'input_confirm_password.dart';
 export 'input_date.dart';
 export 'input_email.dart';

@@ -5,3 +5,4 @@ export 'onboarding/_import.dart';
 export 'otp-verification/_import.dart';
 export 'register/_import.dart';
 export 'reset-password/_import.dart';
+export 'photography/_import.dart';
