@@ -6,3 +6,4 @@ export 'border_radius_scaffold.dart';
 export 'border_top_radius_container.dart';
 export 'image_background_container.dart';
 export 'image_scale_transaction_container.dart';
+export 'search_container.dart';

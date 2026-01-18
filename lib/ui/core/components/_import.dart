@@ -1,4 +1,5 @@
 export 'animations/_import.dart';
+export 'appbar/_import.dart';
 export 'buttons/_import.dart';
 export 'container/_import.dart';
 export 'divider/_import.dart';

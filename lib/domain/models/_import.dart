@@ -1,6 +1,10 @@
+export 'avatar_panel_model.dart';
+export 'avatar_tile_model.dart';
+export 'card_image_model.dart';
 export 'forget_password_model.dart';
 export 'login_model.dart';
 export 'onboarding_model.dart';
 export 'otp_verification_model.dart';
 export 'register_model.dart';
 export 'reset_password_model.dart';
+export 'tab_option_model.dart';

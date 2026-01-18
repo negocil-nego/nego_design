@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class InputButtonSearch extends StatelessWidget {
-  const InputButtonSearch({super.key});
+  final String? hintText;
+
+  const InputButtonSearch({super.key, this.hintText = "Digit anything"});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,7 @@ class InputButtonSearch extends StatelessWidget {
           Expanded(
             child: TextField(
               decoration: InputDecoration(
-                hintText: "Search for photo",
+                hintText: hintText,
                 border: InputBorder.none,
               ),
             ),
