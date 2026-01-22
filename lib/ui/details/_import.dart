@@ -1,0 +1,1 @@
+export 'nego_details.dart';

@@ -1,4 +1,5 @@
 export 'core/_import.dart';
+export 'details/_import.dart';
 export 'forget-password/_import.dart';
 export 'login/_import.dart';
 export 'onboarding/_import.dart';

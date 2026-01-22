@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:nego_design/_import.dart';
 
@@ -12,16 +10,8 @@ class CardImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AspectRatio(
       aspectRatio: 1.27 / 1,
-      child: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: isImageNetwork(model.image)
-                ? NetworkImage(model.image)
-                : AssetImage(model.image),
-            fit: BoxFit.cover,
-          ),
-          borderRadius: BorderRadius.circular(20),
-        ),
+      child: BoxDecorationImageContainer(
+        image: model.image,
         child: Stack(
           children: [
             Align(

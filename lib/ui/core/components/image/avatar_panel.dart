@@ -10,14 +10,13 @@ class AvatarPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorScheme = ColorScheme.of(context);
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(radius),
-          bottomRight: Radius.circular(radius),
-        ),
-        color: colorScheme.surface,
+    final width = MediaQuery.of(context).size.width;
+    return BoxDecorationImageContainer(
+      width: width,
+      image: model.image,
+      borderRadius: BorderRadius.only(
+        bottomLeft: Radius.circular(radius),
+        bottomRight: Radius.circular(radius),
       ),
       child: Column(
         children: [
@@ -44,7 +43,7 @@ class AvatarPanel extends StatelessWidget {
               TextDoubleBold(textOne: '13', textTwo: 'Seguidor'),
             ],
           ),
-          ActionPanelButtons()
+          ActionPanelButtons(),
         ],
       ),
     );
